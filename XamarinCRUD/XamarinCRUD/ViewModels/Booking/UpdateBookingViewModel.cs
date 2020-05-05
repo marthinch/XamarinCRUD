@@ -1,10 +1,11 @@
-﻿using MobilePOS.Helpers;
-using MobilePOS.Models;
+﻿using XamarinCRUD.Helpers;
+using XamarinCRUD.Models;
 using System;
 using System.Windows.Input;
 using Xamarin.Forms;
+using XamarinCRUD.LocalDatabase;
 
-namespace MobilePOS.ViewModels.Booking
+namespace XamarinCRUD.ViewModels.Booking
 {
     public class UpdateBookingViewModel
     {
@@ -20,19 +21,30 @@ namespace MobilePOS.ViewModels.Booking
             }
         }
 
+        // Local services
+        LocalBookingService localBookingService;
+
         public UpdateBookingViewModel()
         {
             Booking = new SampleModel();
+
+            localBookingService = new LocalBookingService();
         }
 
         public async void UpdateBooking()
         {
             try
             {
-                var updatedBooking = Booking;
-
-                MessageNotificationHelper.ShowMessageSuccess("Booking has been updated");
-                await NavigationHelper.PopAsyncSingle();
+                int updatedId = await localBookingService.UpdateAsync(Booking);
+                if (updatedId > 0)
+                {
+                    MessageNotificationHelper.ShowMessageSuccess("Booking has been updated");
+                    await NavigationHelper.PopAsyncSingle();
+                }
+                else
+                {
+                    MessageNotificationHelper.ShowMessageFail("Unable to update booking");
+                }
 
                 //APIResponse apiResponse = await BookingService.UpdateBooking(1, booking);
                 //if (apiResponse != null && apiResponse.Success)

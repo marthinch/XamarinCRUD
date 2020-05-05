@@ -1,10 +1,10 @@
-﻿using MobilePOS.Models;
-using MobilePOS.ViewModels.Booking;
+﻿using XamarinCRUD.Models;
+using XamarinCRUD.ViewModels.Booking;
 
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
-namespace MobilePOS.Views.Booking
+namespace XamarinCRUD.Views.Booking
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class BookingPage : ContentPage

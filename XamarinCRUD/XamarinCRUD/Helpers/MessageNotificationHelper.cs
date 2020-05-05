@@ -1,6 +1,6 @@
 ﻿using Xamarin.Forms;
 
-namespace MobilePOS.Helpers
+namespace XamarinCRUD.Helpers
 {
     public static class MessageNotificationHelper
     {

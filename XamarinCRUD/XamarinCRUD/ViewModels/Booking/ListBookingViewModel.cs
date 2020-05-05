@@ -1,19 +1,20 @@
-﻿using MobilePOS.APIServices;
-using MobilePOS.Helpers;
-using MobilePOS.Models;
-using MobilePOS.Views.Booking;
+﻿using XamarinCRUD.APIServices;
+using XamarinCRUD.Helpers;
+using XamarinCRUD.Models;
+using XamarinCRUD.Views.Booking;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using Xamarin.Forms;
+using XamarinCRUD.LocalDatabase;
 
-namespace MobilePOS.ViewModels.Booking
+namespace XamarinCRUD.ViewModels.Booking
 {
     public class ListBookingViewModel
     {
         // Binding Properties
-        public List<object> Bookings { get; set; }
+        public List<SampleModel> Bookings { get; set; }
 
         // Commands
         public ICommand AddBookingCommand
@@ -24,33 +25,32 @@ namespace MobilePOS.ViewModels.Booking
             }
         }
 
+        // Local services
+        LocalBookingService localBookingService;
+
+        public ListBookingViewModel()
+        {
+            localBookingService = new LocalBookingService();
+        }
+
         private async void AddBooking()
         {
             await NavigationHelper.PushAsyncSingle(new BookingPage());
         }
 
-        public List<object> GetAllBooking()
+        public async Task<List<SampleModel>> GetAllBooking()
         {
-            Bookings = new List<object>();
+            Bookings = new List<SampleModel>();
 
-            for (int i = 0; i <= 10; i++)
-            {
-                SampleModel newItem = new SampleModel
-                {
-                    Id = i,
-                    Name = "Item " + i,
-                    Email = "Email " + i,
-                    PhoneNumber = "08123456789" + i
-                };
-
-                Bookings.Add(newItem);
-            }
+            var bookings = await localBookingService.GetAllAsync().ConfigureAwait(false);
+            if (bookings != null && bookings.Count > 0)
+                Bookings.AddRange(bookings);
 
             //APIResponse apiResponse = await BookingService.GetAllBooking();
             //if (apiResponse != null && apiResponse.Success)
             //{
             //    // Casting the api content
-            //    var bookings = (List<object>)apiResponse.Content;
+            //    var bookings = (List<SampleModel>)apiResponse.Content;
             //    if (bookings != null && bookings.Count > 0)
             //        Bookings.AddRange(bookings);
             //}
@@ -67,9 +67,9 @@ namespace MobilePOS.ViewModels.Booking
             return Bookings;
         }
 
-        public async void GetSelectedBooking(object booking)
+        public async void GetSelectedBooking(SampleModel booking)
         {
-            await NavigationHelper.PushAsyncSingle(new DetailBookingPage((SampleModel)booking));
+            await NavigationHelper.PushAsyncSingle(new DetailBookingPage(booking));
         }
     }
 }

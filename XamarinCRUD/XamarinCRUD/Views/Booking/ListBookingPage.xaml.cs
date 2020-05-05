@@ -1,10 +1,10 @@
-﻿using MobilePOS.Models;
-using MobilePOS.ViewModels.Booking;
+﻿using XamarinCRUD.Models;
+using XamarinCRUD.ViewModels.Booking;
 
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
-namespace MobilePOS.Views.Booking
+namespace XamarinCRUD.Views.Booking
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class ListBookingPage : ContentPage
@@ -18,11 +18,11 @@ namespace MobilePOS.Views.Booking
             listBookingViewModel = new ListBookingViewModel();
         }
 
-        protected override void OnAppearing()
+        protected override async void OnAppearing()
         {
             base.OnAppearing();
 
-            listBookingViewModel.Bookings = listBookingViewModel.GetAllBooking();
+            listBookingViewModel.Bookings = await listBookingViewModel.GetAllBooking();
 
             BindingContext = listBookingViewModel;
         }

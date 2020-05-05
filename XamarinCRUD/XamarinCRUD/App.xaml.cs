@@ -1,9 +1,9 @@
-﻿using MobilePOS.Views.Booking;
+﻿using XamarinCRUD.Views.Booking;
 using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
-namespace MobilePOS
+namespace XamarinCRUD
 {
     public partial class App : Application
     {

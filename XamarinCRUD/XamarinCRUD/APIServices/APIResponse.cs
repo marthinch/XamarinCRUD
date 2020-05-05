@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace MobilePOS.APIServices
+namespace XamarinCRUD.APIServices
 {
     public class APIResponse
     {

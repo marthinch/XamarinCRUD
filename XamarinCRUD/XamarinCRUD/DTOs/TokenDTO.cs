@@ -1,4 +1,4 @@
-﻿namespace MobilePOS.DTOs
+﻿namespace XamarinCRUD.DTOs
 {
     public class TokenDTO
     {

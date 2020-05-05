@@ -1,10 +1,11 @@
-﻿using MobilePOS.Helpers;
-using MobilePOS.Models;
+﻿using XamarinCRUD.Helpers;
+using XamarinCRUD.Models;
 using System;
 using System.Windows.Input;
 using Xamarin.Forms;
+using XamarinCRUD.LocalDatabase;
 
-namespace MobilePOS.ViewModels.Booking
+namespace XamarinCRUD.ViewModels.Booking
 {
     public class CreateBookingViewModel
     {
@@ -20,19 +21,30 @@ namespace MobilePOS.ViewModels.Booking
             }
         }
 
+        // Local services
+        LocalBookingService localBookingService;
+
         public CreateBookingViewModel()
         {
             Booking = new SampleModel();
+
+            localBookingService = new LocalBookingService();
         }
 
         public async void CreateBooking()
         {
             try
             {
-                Booking.Id = 1;
-
-                MessageNotificationHelper.ShowMessageSuccess("Booking has been created");
-                await NavigationHelper.PopAsyncSingle();
+                int createdId = await localBookingService.SaveAsync(Booking);
+                if (createdId > 0)
+                {
+                    MessageNotificationHelper.ShowMessageSuccess("Booking has been created");
+                    await NavigationHelper.PopAsyncSingle();
+                }
+                else
+                {
+                    MessageNotificationHelper.ShowMessageFail("Unable to create booking");
+                }
 
                 //APIResponse apiResponse = await BookingService.CreateBooking(Booking);
                 //if (apiResponse != null && apiResponse.Success)

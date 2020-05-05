@@ -1,11 +1,11 @@
-﻿using MobilePOS.Views.Booking;
+﻿using XamarinCRUD.Views.Booking;
 using Rg.Plugins.Popup.Pages;
 using Rg.Plugins.Popup.Services;
 using System.Linq;
 using System.Threading.Tasks;
 using Xamarin.Forms;
 
-namespace MobilePOS.Helpers
+namespace XamarinCRUD.Helpers
 {
     public static class NavigationHelper
     {

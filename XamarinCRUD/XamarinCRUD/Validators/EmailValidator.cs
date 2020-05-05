@@ -3,7 +3,7 @@ using System.Runtime.InteropServices;
 using System.Text.RegularExpressions;
 using Xamarin.Forms;
 
-namespace MobilePOS.Validators
+namespace XamarinCRUD.Validators
 {
     [ComVisible(false)]
     public class EmailValidator : Behavior<Entry>

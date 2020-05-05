@@ -1,4 +1,4 @@
-﻿using MobilePOS.DTOs;
+﻿using XamarinCRUD.DTOs;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -7,7 +7,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using Xamarin.Essentials;
 
-namespace MobilePOS.Helpers
+namespace XamarinCRUD.Helpers
 {
     public class TokenHelper
     {

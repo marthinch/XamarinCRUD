@@ -2,7 +2,7 @@
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 
-namespace MobilePOS.ViewModels
+namespace XamarinCRUD.ViewModels
 {
 	public class BaseViewModel : INotifyPropertyChanged
 	{

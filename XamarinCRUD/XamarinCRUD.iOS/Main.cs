@@ -5,7 +5,7 @@ using System.Linq;
 using Foundation;
 using UIKit;
 
-namespace MobilePOS.iOS
+namespace XamarinCRUD.iOS
 {
     public class Application
     {

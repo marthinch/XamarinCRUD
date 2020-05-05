@@ -1,4 +1,4 @@
-﻿namespace MobilePOS
+﻿namespace XamarinCRUD
 {
     public class Constanta
     {

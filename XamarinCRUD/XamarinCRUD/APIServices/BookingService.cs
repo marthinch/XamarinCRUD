@@ -1,8 +1,8 @@
-﻿using MobilePOS.Helpers;
+﻿using XamarinCRUD.Helpers;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace MobilePOS.APIServices
+namespace XamarinCRUD.APIServices
 {
     public class BookingService
     {

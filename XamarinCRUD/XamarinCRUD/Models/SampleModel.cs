@@ -1,4 +1,4 @@
-﻿namespace MobilePOS.Models
+﻿namespace XamarinCRUD.Models
 {
     public class SampleModel
     {

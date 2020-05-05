@@ -9,7 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Essentials;
 
-namespace MobilePOS.Helpers
+namespace XamarinCRUD.Helpers
 {
     public static class NetworkHelper
     {

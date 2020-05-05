@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace MobilePOS
+namespace XamarinCRUD
 {
     public class Pagination
     {

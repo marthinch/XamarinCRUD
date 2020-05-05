@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace MobilePOS.Helpers
+namespace XamarinCRUD.Helpers
 {
     public class EndpointHelper
     {

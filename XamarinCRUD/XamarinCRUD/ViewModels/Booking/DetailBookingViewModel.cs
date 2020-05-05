@@ -1,13 +1,14 @@
-﻿using MobilePOS.APIServices;
-using MobilePOS.Helpers;
-using MobilePOS.Models;
-using MobilePOS.Views.Booking;
+﻿using XamarinCRUD.APIServices;
+using XamarinCRUD.Helpers;
+using XamarinCRUD.Models;
+using XamarinCRUD.Views.Booking;
 using System;
 using System.Linq;
 using System.Windows.Input;
 using Xamarin.Forms;
+using XamarinCRUD.LocalDatabase;
 
-namespace MobilePOS.ViewModels.Booking
+namespace XamarinCRUD.ViewModels.Booking
 {
     public class DetailBookingViewModel
     {
@@ -30,6 +31,14 @@ namespace MobilePOS.ViewModels.Booking
             }
         }
 
+        // Local services
+        LocalBookingService localBookingService;
+
+        public DetailBookingViewModel()
+        {
+            localBookingService = new LocalBookingService();
+        }
+
         public async void UpdateBooking()
         {
             await NavigationHelper.PushAsyncSingle(new BookingPage(Booking));
@@ -42,13 +51,21 @@ namespace MobilePOS.ViewModels.Booking
                 bool isDeleted = await Application.Current.MainPage.DisplayAlert("Warning", "Are you sure want to delete this item?", "OK", "Cancel");
                 if (isDeleted)
                 {
-                    MessageNotificationHelper.ShowMessageSuccess("Item has been deleted");
-                    await NavigationHelper.PopAsyncSingle();
+                    int deletedId = await localBookingService.DeleteAsync(Booking);
+                    if (deletedId > 0)
+                    {
+                        MessageNotificationHelper.ShowMessageSuccess("Booking has been deleted");
+                        await NavigationHelper.PopAsyncSingle();
+                    }
+                    else
+                    {
+                        MessageNotificationHelper.ShowMessageFail("Unable to delete booking");
+                    }
 
                     //APIResponse apiResponse = await BookingService.DeleteBooking(0);
                     //if (apiResponse != null && apiResponse.Success)
                     //{
-                    //    MessageNotificationHelper.ShowMessageSuccess("Item has been deleted");
+                    //    MessageNotificationHelper.ShowMessageSuccess("Booking has been deleted");
                     //}
                     //else
                     //{

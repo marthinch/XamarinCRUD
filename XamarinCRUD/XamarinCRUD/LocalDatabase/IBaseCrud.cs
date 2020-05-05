@@ -1,0 +1,14 @@
+﻿using System.Collections.Generic;
+using System.Threading.Tasks;
+
+namespace XamarinCRUD.LocalDatabase
+{
+    public interface IBaseCrud<T> where T : class
+    {
+        Task<List<T>> GetAllAsync();
+        Task<T> GetItemAsync(int id);
+        Task<int> SaveAsync(T item);
+        Task<int> UpdateAsync(T item);
+        Task<int> DeleteAsync(T item);
+    }
+}

@@ -1,7 +1,7 @@
-﻿using MobilePOS.Models;
+﻿using XamarinCRUD.Models;
 using System.Collections.Generic;
 
-namespace MobilePOS.Sample
+namespace XamarinCRUD.Sample
 {
     public class SampleHelper
     {

@@ -3,5 +3,7 @@
   <PropertyGroup>
     <SelectedDevice>Xiaomi Redmi 5A</SelectedDevice>
     <DefaultDevice>q_10_0</DefaultDevice>
+    <ProjectView>ShowAllFiles</ProjectView>
+    <AndroidDesignerPreferredDevice>Nexus 4</AndroidDesignerPreferredDevice>
   </PropertyGroup>
 </Project>

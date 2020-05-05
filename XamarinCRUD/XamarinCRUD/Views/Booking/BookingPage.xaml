@@ -4,9 +4,9 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              
-             xmlns:local="clr-namespace:MobilePOS.Validators"
+             xmlns:local="clr-namespace:XamarinCRUD.Validators"
              mc:Ignorable="d"
-             x:Class="MobilePOS.Views.Booking.BookingPage">
+             x:Class="XamarinCRUD.Views.Booking.BookingPage">
 
     <ContentPage.Content>
         <StackLayout Margin="10">
