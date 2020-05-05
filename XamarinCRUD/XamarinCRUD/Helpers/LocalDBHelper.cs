@@ -4,6 +4,7 @@ using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using XamarinCRUD.Extensions;
+using XamarinCRUD.Models;
 
 namespace XamarinCRUD.Helpers
 {
@@ -11,9 +12,9 @@ namespace XamarinCRUD.Helpers
     {
         public const string DatabaseFilename = "LocalDB.db3";
 
-        public const SQLite.SQLiteOpenFlags Flags = SQLiteOpenFlags.ReadWrite |     // open the database in read/write mode
-                                                    SQLiteOpenFlags.Create |        // create the database if it doesn't exist
-                                                    SQLiteOpenFlags.SharedCache;    // enable multi-threaded database access
+        public const SQLiteOpenFlags Flags = SQLiteOpenFlags.ReadWrite |     // open the database in read/write mode
+                                             SQLiteOpenFlags.Create |        // create the database if it doesn't exist
+                                             SQLiteOpenFlags.SharedCache;    // enable multi-threaded database access
 
         private static string DatabasePath
         {
@@ -24,22 +25,22 @@ namespace XamarinCRUD.Helpers
             }
         }
 
-        public static readonly Lazy<SQLiteAsyncConnection> Database = new Lazy<SQLiteAsyncConnection>(() =>
+        public static SQLiteAsyncConnection Database()
         {
             return new SQLiteAsyncConnection(DatabasePath, Flags);
-        });
+        }
 
         private static async Task InitializeDatabaseAsync<T>() where T : class
         {
-            if (!Database.Value.TableMappings.Any(m => m.MappedType.Name == typeof(T).Name))
+            if (!Database().TableMappings.Any(m => m.MappedType.Name == typeof(T).Name))
             {
-                await Database.Value.CreateTablesAsync(CreateFlags.None, typeof(T));
+                await Database().CreateTablesAsync(CreateFlags.None, typeof(T)).ConfigureAwait(false);
             }
         }
 
-        public static void Initialize<T>() where T : class
+        public static async void Initialize<T>() where T : class
         {
-            InitializeDatabaseAsync<T>().SafeFireAndForget(false);
+            await InitializeDatabaseAsync<T>();
         }
     }
 }

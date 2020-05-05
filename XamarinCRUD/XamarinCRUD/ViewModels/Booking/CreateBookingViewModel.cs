@@ -35,6 +35,8 @@ namespace XamarinCRUD.ViewModels.Booking
         {
             try
             {
+                Booking.Id = DateTime.Now.ToString();
+
                 int createdId = await localBookingService.SaveAsync(Booking);
                 if (createdId > 0)
                 {

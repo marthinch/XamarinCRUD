@@ -11,7 +11,7 @@ namespace XamarinCRUD.Helpers
     {
         public static void GoToMainPage()
         {
-            Application.Current.MainPage = new ListBookingPage();
+            Application.Current.MainPage = new NavigationPage(new ListBookingPage());
         }
 
         public static async Task PushAsyncSingle(Page page, bool isAnimated = false)

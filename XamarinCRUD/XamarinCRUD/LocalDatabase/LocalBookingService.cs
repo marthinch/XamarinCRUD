@@ -14,7 +14,7 @@ namespace XamarinCRUD.LocalDatabase
         {
             LocalDBHelper.Initialize<SampleModel>();
 
-            Database = LocalDBHelper.Database.Value;
+            Database = LocalDBHelper.Database();
         }
 
         public Task<int> DeleteAsync(SampleModel item)
@@ -27,7 +27,7 @@ namespace XamarinCRUD.LocalDatabase
             return Database.Table<SampleModel>().ToListAsync();
         }
 
-        public Task<SampleModel> GetItemAsync(int id)
+        public Task<SampleModel> GetItemAsync(string id)
         {
             return Database.Table<SampleModel>().FirstOrDefaultAsync(i => i.Id == id);
         }

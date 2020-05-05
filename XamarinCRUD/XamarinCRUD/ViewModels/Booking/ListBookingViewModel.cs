@@ -13,7 +13,7 @@ namespace XamarinCRUD.ViewModels.Booking
 {
     public class ListBookingViewModel
     {
-        // Binding Properties
+        // Data
         public List<SampleModel> Bookings { get; set; }
 
         // Commands
@@ -24,7 +24,7 @@ namespace XamarinCRUD.ViewModels.Booking
                 return new Command(AddBooking);
             }
         }
-
+       
         // Local services
         LocalBookingService localBookingService;
 
@@ -42,7 +42,7 @@ namespace XamarinCRUD.ViewModels.Booking
         {
             Bookings = new List<SampleModel>();
 
-            var bookings = await localBookingService.GetAllAsync().ConfigureAwait(false);
+            var bookings = await localBookingService.GetAllAsync();
             if (bookings != null && bookings.Count > 0)
                 Bookings.AddRange(bookings);
 

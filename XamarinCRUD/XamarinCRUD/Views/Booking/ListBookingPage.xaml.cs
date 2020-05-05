@@ -22,7 +22,7 @@ namespace XamarinCRUD.Views.Booking
         {
             base.OnAppearing();
 
-            listBookingViewModel.Bookings = await listBookingViewModel.GetAllBooking();
+            ListViewBooking.ItemsSource = await listBookingViewModel.GetAllBooking();
 
             BindingContext = listBookingViewModel;
         }
