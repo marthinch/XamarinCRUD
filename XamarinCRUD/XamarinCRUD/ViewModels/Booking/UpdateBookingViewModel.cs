@@ -39,7 +39,7 @@ namespace XamarinCRUD.ViewModels.Booking
                 if (updatedId > 0)
                 {
                     MessageNotificationHelper.ShowMessageSuccess("Booking has been updated");
-                    await NavigationHelper.PopAsyncSingle();
+                    NavigationHelper.GoToMainPage();
                 }
                 else
                 {
