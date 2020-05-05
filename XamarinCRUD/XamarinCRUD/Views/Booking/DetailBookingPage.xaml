@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="MobilePOS.Views.Booking.DetailBookingPage"
+             Title="Detail Booking">
+
+    <ContentPage.Content>
+        <StackLayout Margin="10">
+
+            <Label Text="Name"/>
+            <Label Text="{Binding Booking.Name}" />
+
+            <Label Text="Email"/>
+            <Label Text="{Binding Booking.Email}" />
+
+            <Label Text="Phone Number"/>
+            <Label Text="{Binding Booking.PhoneNumber}" />
+
+            <Button Command="{Binding UpdateBookingCommand}" Text="Update" BackgroundColor="Orange"/>
+            <Button Command="{Binding DeleteBookingCommand}" Text="Delete" BackgroundColor="Red"/>
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

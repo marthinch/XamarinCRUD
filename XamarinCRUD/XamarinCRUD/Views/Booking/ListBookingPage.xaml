@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="MobilePOS.Views.Booking.ListBookingPage"
+             Title="List Booking">
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem x:Name="AddBooking" Text="Add" Command="{Binding AddBookingCommand}"/>
+    </ContentPage.ToolbarItems>
+
+    <ContentPage.Content>
+        <ListView x:Name="ListViewBooking" 
+                  ItemsSource="{Binding Bookings}" 
+                  ItemTapped="ListViewBooking_ItemTapped" 
+                  CachingStrategy="RecycleElement"
+                  RowHeight="110">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <StackLayout Margin="10">
+                            <Label Text="{Binding Id}" />
+                            <Label Text="{Binding Name}" />
+                            <Label Text="{Binding Email}" />
+                            <Label Text="{Binding PhoneNumber}" />
+                        </StackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </ContentPage.Content>
+
+</ContentPage>

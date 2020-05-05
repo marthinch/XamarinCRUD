@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             
+             xmlns:local="clr-namespace:MobilePOS.Validators"
+             mc:Ignorable="d"
+             x:Class="MobilePOS.Views.Booking.BookingPage">
+
+    <ContentPage.Content>
+        <StackLayout Margin="10">
+
+            <Label Text="Name"/>
+            <Entry Text="{Binding Booking.Name}"/>
+
+            <Label Text="Email"/>
+            <Entry Text="{Binding Booking.Email}" Keyboard="Email">
+                <Entry.Behaviors>
+                    <local:EmailValidator/>
+                </Entry.Behaviors>
+            </Entry>
+
+            <Label Text="Phone Number"/>
+            <Entry Text="{Binding Booking.PhoneNumber}" Keyboard="Telephone" />
+
+            <Button x:Name="ButtonBooking" Command="{Binding BookingCommand}" BackgroundColor="LightGreen"/>
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
