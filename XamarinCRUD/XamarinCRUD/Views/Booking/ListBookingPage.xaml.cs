@@ -22,14 +22,13 @@ namespace XamarinCRUD.Views.Booking
         {
             base.OnAppearing();
 
-            ListViewBooking.ItemsSource = await listBookingViewModel.GetAllBooking();
-
+            listBookingViewModel.Bookings = await listBookingViewModel.GetAllBooking();
             BindingContext = listBookingViewModel;
         }
 
         private void ListViewBooking_ItemTapped(object sender, ItemTappedEventArgs e)
         {
-            SampleModel item = (SampleModel)e.Item;
+            Models.Booking item = (Models.Booking)e.Item;
             if (item == null)
                 return;
 

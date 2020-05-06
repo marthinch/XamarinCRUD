@@ -25,7 +25,7 @@ namespace XamarinCRUD.Views.Booking
             BindingContext = createBookingViewModel;
         }
 
-        public BookingPage(SampleModel booking = null)
+        public BookingPage(Models.Booking booking = null)
         {
             if (booking == null)
                 return;

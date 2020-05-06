@@ -13,7 +13,7 @@ namespace XamarinCRUD.ViewModels.Booking
     public class DetailBookingViewModel
     {
         // Data
-        public SampleModel Booking { get; set; }
+        public Models.Booking Booking { get; set; }
 
         // Commands
         public ICommand UpdateBookingCommand

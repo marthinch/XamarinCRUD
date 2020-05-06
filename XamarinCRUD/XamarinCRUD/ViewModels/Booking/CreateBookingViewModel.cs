@@ -10,7 +10,7 @@ namespace XamarinCRUD.ViewModels.Booking
     public class CreateBookingViewModel
     {
         // Data
-        public SampleModel Booking { get; set; }
+        public Models.Booking Booking { get; set; }
 
         // Commands
         public ICommand BookingCommand
@@ -26,7 +26,7 @@ namespace XamarinCRUD.ViewModels.Booking
 
         public CreateBookingViewModel()
         {
-            Booking = new SampleModel();
+            Booking = new Models.Booking();
 
             localBookingService = new LocalBookingService();
         }

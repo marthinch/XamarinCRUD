@@ -8,11 +8,12 @@
              Title="List Booking">
 
     <ContentPage.ToolbarItems>
-        <ToolbarItem x:Name="AddBooking" Text="Add" Command="{Binding AddBookingCommand}"/>
+        <ToolbarItem Text="Add" Command="{Binding AddCommand}"/>
     </ContentPage.ToolbarItems>
 
     <ContentPage.Content>
         <ListView x:Name="ListViewBooking"
+                  ItemsSource="{Binding Bookings}"
                   ItemTapped="ListViewBooking_ItemTapped" 
                   CachingStrategy="RecycleElement"
                   RowHeight="80">

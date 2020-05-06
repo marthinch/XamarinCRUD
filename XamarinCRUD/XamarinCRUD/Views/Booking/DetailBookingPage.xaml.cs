@@ -10,7 +10,7 @@ namespace XamarinCRUD.Views.Booking
     {
         private DetailBookingViewModel detailBookingViewModel;
 
-        public DetailBookingPage(SampleModel booking = null)
+        public DetailBookingPage(Models.Booking booking = null)
         {
             InitializeComponent();
 

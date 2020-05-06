@@ -6,38 +6,38 @@ using XamarinCRUD.Helpers;
 
 namespace XamarinCRUD.LocalDatabase
 {
-    public class LocalBookingService : IBaseCrud<SampleModel>
+    public class LocalBookingService : IBaseCrud<Booking>
     {
         private SQLiteAsyncConnection Database;
 
         public LocalBookingService()
         {
-            LocalDBHelper.Initialize<SampleModel>();
+            LocalDBHelper.Initialize<Booking>();
 
             Database = LocalDBHelper.Database();
         }
 
-        public Task<int> DeleteAsync(SampleModel item)
+        public Task<int> DeleteAsync(Booking item)
         {
             return Database.DeleteAsync(item);
         }
 
-        public Task<List<SampleModel>> GetAllAsync()
+        public Task<List<Booking>> GetAllAsync()
         {
-            return Database.Table<SampleModel>().ToListAsync();
+            return Database.Table<Booking>().ToListAsync();
         }
 
-        public Task<SampleModel> GetItemAsync(string id)
+        public Task<Booking> GetItemAsync(string id)
         {
-            return Database.Table<SampleModel>().FirstOrDefaultAsync(i => i.Id == id);
+            return Database.Table<Booking>().FirstOrDefaultAsync(i => i.Id == id);
         }
 
-        public Task<int> SaveAsync(SampleModel item)
+        public Task<int> SaveAsync(Booking item)
         {
             return Database.InsertAsync(item);
         }
 
-        public Task<int> UpdateAsync(SampleModel item)
+        public Task<int> UpdateAsync(Booking item)
         {
             return Database.UpdateAsync(item);
         }

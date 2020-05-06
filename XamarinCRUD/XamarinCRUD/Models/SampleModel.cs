@@ -2,7 +2,7 @@
 
 namespace XamarinCRUD.Models
 {
-    public class SampleModel
+    public class Booking
     {
         [PrimaryKey]
         public string Id { get; set; }
